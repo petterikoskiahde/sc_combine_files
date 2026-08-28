@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-mac:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
     - name: Get the code
       uses: actions/checkout@v4
@@ -23,13 +23,15 @@ jobs:
         pip install imageio-ffmpeg Pillow pyinstaller
 
     - name: Build the Mac App
+      env:
+        MACOSX_DEPLOYMENT_TARGET: "11.0"  # Forces backward compatibility for macOS 11 and 12
       run: |
         pyinstaller --noconsole --onefile --collect-binaries imageio_ffmpeg app.py
 
     - name: Upload Mac App
       uses: actions/upload-artifact@v4
       with:
-        name: SnapchatJoiner-Mac
+        name: mac-taikuri
         path: dist/
 
   build-windows:
