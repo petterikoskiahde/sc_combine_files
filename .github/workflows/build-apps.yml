@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-mac:
-    runs-on: macos-13
+    runs-on: macos-15-intel
     steps:
     - name: Get the code
       uses: actions/checkout@v4
@@ -24,7 +24,7 @@ jobs:
 
     - name: Build the Mac App
       env:
-        MACOSX_DEPLOYMENT_TARGET: "11.0"  # Forces backward compatibility for macOS 11 and 12
+        MACOSX_DEPLOYMENT_TARGET: "11.0"  
       run: |
         pyinstaller --noconsole --onefile --collect-binaries imageio_ffmpeg app.py
 
