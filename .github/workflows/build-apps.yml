@@ -31,7 +31,7 @@ jobs:
     - name: Upload Mac App
       uses: actions/upload-artifact@v4
       with:
-        name: mac-taikuri
+        name: taikuri-for-macos
         path: dist/
 
   build-windows:
@@ -57,5 +57,5 @@ jobs:
     - name: Upload Windows App
       uses: actions/upload-artifact@v4
       with:
-        name: SnapchatJoiner-Windows
+        name: taikuri-for-windows
         path: dist/
